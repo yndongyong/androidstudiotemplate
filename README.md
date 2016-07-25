@@ -20,7 +20,7 @@ android studio template
 	此外，支持一些可选，比如，支持是否生成Adapter以及item布局文件，支持是否生成使用androidannotations的代码，是否支持上拉加载更多，是否使用toolbar等。
 	
 	一览：
-	![RefreshActivityTempalte](http://i4.piimg.com/567571/a86c4be099e55c49.png)
+	![RefreshActivityTempalte](http://oav23hfp9.bkt.clouddn.com/16-7-25/10576456.jpg)
 
 
 
