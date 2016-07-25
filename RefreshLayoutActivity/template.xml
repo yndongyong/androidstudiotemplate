@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="7"
+    name="RefreshLayout Activity"
+    minApi="7"
+    minBuildApi="14"
+    description="生成一个支持上拉刷新、下拉加载更多的Activity">
+
+    <category value="Activity" />
+    <formfactor value="Mobile" />
+
+<parameter
+	id="activityClass"
+	name="Activity Name"
+	type="string"
+	constraints="class|unique|nonempty"
+	suggest="${layoutToActivity(layoutName)}"
+	default="RefreshActivity"
+	help="The name of the activity class to create" />
+
+<parameter
+	id="layoutName"
+	name="Layout Name"
+	type="string"
+	constraints="layout|unique|nonempty"
+	suggest="${activityToLayout(activityClass)}"
+	default="activity_refresh"
+	visibility="generateLayout"
+	help="The name of the layout to create for the activity" />
+
+<parameter
+	id="generateLayout"
+	name="Generate Layout File"
+	type="boolean"
+	default="true"
+	help="If true, a layout file will be generated" />
+	
+<parameter
+	id="adapterClass"
+	name="Adapter Name"
+	type="string"
+	constraints="class|unique|nonempty"
+	default="EntityAdapter"
+	visibility="generateAdapter"
+	help="adapter的类名" />
+
+<parameter
+	id="generateAdapter"
+	name="生成Adapter类"
+	type="boolean"
+	default="true"
+	help="是否生成适配器类" />
+
+<parameter
+	id="itemLayoutName"
+	name="List Item Layout Name"
+	type="string"
+	constraints="layout|unique|nonempty"
+	default="list_item_layout"
+	visibility="generateItemLayout"
+	help="列表项布局的名称" />
+
+<parameter
+	id="generateItemLayout"
+	name="生成列表项的布局"
+	type="boolean"
+	default="true"
+	help="是否生成List_Item布局" />
+
+<parameter
+	id="isLauncher"
+	name="Launcher Activity"
+	type="boolean"
+	default="false"
+	help="If true, this activity will have a CATEGORY_LAUNCHER intent filter, making it visible in the launcher"/>
+
+<parameter
+	id="generateRefreshLayout"
+	name="支持上拉刷新下载加载功能 "
+	type="boolean"
+	default="true"
+	help="是否生成Refreshlayout布局" />
+
+<parameter
+	id="hasToolbar"
+	name="使用Toolbar"
+	type="boolean"
+	default="true"
+	help="是否使用Toolbar控件" />
+
+	
+
+<parameter
+        id="generateItemClick"
+        name="生成RecyleView Item Click事件"
+        type="boolean"
+        default="true"
+        help="是否生成RecyleView Item Click的事件"/>
+
+<parameter
+        id="generateAA"
+        name="生成androidannotations格式的代码"
+        type="boolean"
+        default="true"
+        help="是否使用AA框架生成代码"/>
+
+<parameter
+        id="isLoadMore"
+        name="支持上拉加载更多"
+        type="boolean"
+        default="true"
+        help="是否支持上拉加载更多"/>
+    <parameter
+        id="packageName"
+        name="Package name"
+        type="string"
+        constraints="package"
+        default="com.mycompany.myapp" />
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_blank_activity.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>
