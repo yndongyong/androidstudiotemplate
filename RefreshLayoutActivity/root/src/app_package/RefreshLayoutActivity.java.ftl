@@ -59,6 +59,7 @@ public class ${activityClass} extends FaBaseActivity {
     @ViewById(R.id.recyclerView)
     </#if>
     RecyclerView mRecyclerView;
+    LinearLayoutManager mLinearLayoutManager;
 
     <#if generateAdapter&&adapterClass??>
     ${adapterClass} mAdapter;
@@ -105,7 +106,8 @@ public class ${activityClass} extends FaBaseActivity {
         mRecyclerView.setAdapter(mAdapter);
 	</#if>
 
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this.mContext));
+        mLinearLayoutManager = new LinearLayoutManager(this.mContext);
+        mRecyclerView.setLayoutManager(mLinearLayoutManager);
         mRecyclerView.setItemAnimator(new FadeInLeftAnimator());
 
 	<#if generateItemClick && generateRefreshLayout && generateAdapter && adapterClass??>
